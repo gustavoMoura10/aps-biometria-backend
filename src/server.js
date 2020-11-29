@@ -11,6 +11,7 @@ const { startMiddlewares } = require("./config/middlewares");
   try {
     const auth = await authenticate();
     console.log(auth);
+    console.log(process.env.JWT_TOKEN)
     startMiddlewares(app);
     startRouting(app);
     app.use("/models", express.static("models"));
