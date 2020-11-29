@@ -1,0 +1,32 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tensorflow/tfjs-node": "1.7.0",
+    "bcryptjs": "^2.4.3",
+    "canvas": "^2.6.1",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "face-api.js": "^0.22.2",
+    "imagekit": "^3.1.1",
+    "imagemin": "^7.0.1",
+    "imagemin-pngquant": "^9.0.1",
+    "jimp": "^0.16.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.16",
+    "morgan": "^1.10.0",
+    "pixelmatch": "^5.2.1",
+    "validatorjs": "^3.21.0"
+  }
+}
