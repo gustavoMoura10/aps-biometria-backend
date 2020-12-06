@@ -10,9 +10,7 @@ const { startMiddlewares } = require("./config/middlewares");
 (async () => {
   try {
     const auth = await authenticate();
-    console.log(auth);
-    console.log(process.env.JWT_TOKEN)
-    console.log(process.env.URL_IMAGES)
+    console.log(auth)
     startMiddlewares(app);
     startRouting(app);
     app.use("/models", express.static("models"));

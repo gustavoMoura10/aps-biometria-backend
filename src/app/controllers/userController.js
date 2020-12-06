@@ -45,7 +45,26 @@ exports.findAllUsers = async (req, resp, next) => {
   let status = 400;
   try {
     status = 500;
-    const users = await User.find({}).select("-password");
+    const users = await User.find({
+      email: { $not: { $regex: process.env.MASTER_EMAIL } },
+    }).select("-password");
+    status = 200;
+    return resp.status(status).json(users);
+  } catch (error) {
+    console.log(error);
+    return resp
+      .status(status)
+      .send(
+        status === 500 ? { error: true, message: "Error on Server" } : error
+      );
+  }
+};
+
+exports.deleteUser = async (req, resp, next) => {
+  try {
+    if (!req.params._id) throw { params: ["Missing _id"] };
+    status = 500;
+    const users = await User.findByIdAndDelete(req.params._id);
     status = 200;
     return resp.status(status).json(users);
   } catch (error) {
